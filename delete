@@ -1,0 +1,17 @@
+ldapdelete -h localhost -p 389 -D "cn=admin" -W "uid=akshay,ou=People,dc=pradhanrishi,dc=com"
+
+
+ldapdelete -D "cn=admin" -W -h localhost -p 849 "cn=akshay,ou=People,dc=pradhanrishi,dc=com"
+
+
+// Insufficient permission
+sudo ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f deleteAkshay.ldif 
+
+//Incompatible with auth choice
+sudo ldapmodify -x -Y EXTERNAL -H ldapi:/// -f deleteAkshay.ldif 
+
+//SUCCESS specify bind method with -x
+sudo ldapmodify -x -h localhost -p 389 -W -D 'cn=admin,dc=pradhanrishi,dc=com' -f deleteAkshay.ldif
+
+//Was using SASL binding
+sudo ldapmodify -h localhost -p 389 -x -W  -D 'cn=admin,dc=pradhanrishi,dc=com' -f deleteAkshay.ldif

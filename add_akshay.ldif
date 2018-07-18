@@ -1,0 +1,15 @@
+dn: uid=akshay,ou=People,dc=pradhanrishi,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: akshay
+sn: vijaywargiya
+givenName: akshay
+cn: akshay vijaywargiya
+displayName: akshay vijaywargiya
+uidNumber: 70000
+gidNumber: 6000
+userPassword: akshay@hash
+gecos: akshay vijaywargiya
+loginShell: /bin/bash
+homeDirectory: /home/akshay

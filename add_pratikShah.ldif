@@ -1,0 +1,28 @@
+dn: ou=People,dc=pradhanrishi,dc=com
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Groups,dc=pradhanrishi,dc=com
+objectClass: organizationalUnit
+ou: Groups
+
+dn: cn=miners,ou=Groups,dc=pradhanrishi,dc=com
+objectClass: posixGroup
+cn: miners
+gidNumber: 5000
+
+dn: uid=Pratik,ou=People,dc=pradhanrishi,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: Pratik
+sn: Shah
+givenName: Pratik
+cn: Pratik Shah
+displayName: Pratik Shah
+uidNumber: 10000
+gidNumber: 5000
+userPassword: pratik123
+gecos: Pratik Shah
+loginShell: /bin/bash
+homeDirectory: /home/john
