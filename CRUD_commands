@@ -1,0 +1,22 @@
+List the configuration :
+sudo ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=config dn
+Explanation of all switches :
+
+Create entries :
+ldapadd -x -D cn=admin,dc=pradhanrishi,dc=com -W -f add_pratikShah.ldif
+Explanation of all switches :
+
+Read created entries :
+List users under pradhanrishi.com DIT : 
+ldapsearch -x -LLL -H ldap:/// -b dc=pradhanrishi,dc=com dn 
+Explanation of all switches :
+
+  ldapsearch -x -LLL -b dc=pradhanrishi,dc=com 'uid=Pratik' cn gidNumber
+  Explanation of all switches :
+
+Update entries : 
+sudo ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f logging.ldif
+// Here we altered contents of cn=config to enable more verbose logging
+Explanation of all switches :
+
+Delete entries : 
