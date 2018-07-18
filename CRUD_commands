@@ -3,7 +3,7 @@ sudo ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=config dn
 Explanation of all switches :
 
 Create entries :
-ldapadd -x -D cn=admin,dc=pradhanrishi,dc=com -W -f add_pratikShah.ldif
+ldapadd -x -D cn=admin,dc=pradhanrishi,dc=com -W -f add_akshay.ldif
 Explanation of all switches :
 
 Read created entries :
@@ -20,3 +20,5 @@ sudo ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f logging.ldif
 Explanation of all switches :
 
 Delete entries : 
+sudo ldapmodify -x -h localhost -p 389 -W -D 'cn=admin,dc=pradhanrishi,dc=com' -f deleteAkshay.ldif
+
