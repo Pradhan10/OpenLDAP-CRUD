@@ -1,24 +1,60 @@
-List the configuration :
+1 : List the configuration :
+
 sudo ldapsearch -Q -LLL -Y EXTERNAL -H ldapi:/// -b cn=config dn
 Explanation of all switches :
+  -Q  = Enable SASL Quiet mode. Never prompt.
+  -L  = Search results are display in LDAP Data Interchange Format detailed in ldif(5).
+        A  single -L restricts the output to LDIFv1. A second -L disables comments. A third -L disables printing of the LDIF version. The default is to use an extended 	version of LDIF.
+  -Y  = Specify the SASL mechanism to be used for authentication.
+        If it's not specified, the program will choose the best mechanism the server knows.
+  -H  = Host URI
+  -b  = searchbase
 
-Create entries :
+2 : Create entries :
+
 ldapadd -x -D cn=admin,dc=pradhanrishi,dc=com -W -f add_akshay.ldif
 Explanation of all switches :
+  -x = use simple auth insted of SASL
+  -D =  -D binddn Use the Distinguished Name binddn
+  -W = Prompt for password
+  -f = Read from file
 
-Read created entries :
+
+
+3 : Read created entries :
+
 List users under pradhanrishi.com DIT : 
 ldapsearch -x -LLL -H ldap:/// -b dc=pradhanrishi,dc=com dn 
 Explanation of all switches :
+	
+  -x = use simple auth
+  -LLL = Disable comments and printing of ldif version
+  -H = Specify host URI
+  -b = Searchbase
 
   ldapsearch -x -LLL -b dc=pradhanrishi,dc=com 'uid=Pratik' cn gidNumber
   Explanation of all switches :
 
-Update entries : 
-sudo ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f logging.ldif
+4 : Update entries : 
+
 // Here we altered contents of cn=config to enable more verbose logging
+sudo ldapmodify -Q -Y EXTERNAL -H ldapi:/// -f logging.ldif
+Explanation of all switches :
+  
+  -Q = Enable SASL Quiet mode. Never prompt.
+  -Y = choose best auth mech server knows
+  -H = Specify host URI
+  -f = Read from file
+
+
+5 : Delete entries : 
+
+sudo ldapmodify -x -h localhost -p 389 -W -D 'cn=admin,dc=pradhanrishi,dc=com' -f deleteAkshay.ldif
 Explanation of all switches :
 
-Delete entries : 
-sudo ldapmodify -x -h localhost -p 389 -W -D 'cn=admin,dc=pradhanrishi,dc=com' -f deleteAkshay.ldif
-
+  -x = use simple auth
+  -h = host
+  -p = port number
+  -W = prompt for password
+  -D = binddn to be used
+  -f = read from file
