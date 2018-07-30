@@ -1,0 +1,4 @@
+dn: olcDatabase={1}bdb,cn=config
+changetype:modify
+add: olcDbIndex
+olcDbIndex: employeeNumber eq
