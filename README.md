@@ -24,3 +24,4 @@ The commonly faced errors are :
 5 : # noSuchObject (32)
 
 Refer link for more information : https://gos.si/blog/installing-openldap-on-debian-squeeze-with-olc/
+Useful link for converting schema file to ldif file : https://hnayablog.wordpress.com/2017/12/12/convert-schema-file-to-ldif/
