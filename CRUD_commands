@@ -58,3 +58,15 @@ Explanation of all switches :
   -W = prompt for password
   -D = binddn to be used
   -f = read from file
+  
+  6 : Extract an LDIF backup of entries in server, using utility
+  
+  ldapsearch -D "cn=admin,dc=example,dc=com" -W -p 389 -h localhost -b "dc=example,dc=com" -s sub "(ObjectClass=*)" * + > backup.ldif
+  Explanation of all switches : 
+  
+    -D = Domain
+    -W = Prompt password
+    -p = port
+    -b = branch
+    -s = scope
+    -+ = Fetch optional attributes as well 
